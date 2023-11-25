@@ -4,7 +4,10 @@ import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 export type AuthStackParamList = {};
 
 export type RootStackParamList = {
+  Splash: undefined;
   Onboarding: undefined;
+  Login: undefined;
+  Signup: undefined;
 
   // Nested Stacks
   // AuthStack: NavigatorScreenParams<AuthStackParamList>;

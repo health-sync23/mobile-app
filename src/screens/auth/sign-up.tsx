@@ -1,11 +1,12 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, SafeAreaView } from "react-native";
 import React from "react";
+import AppText from "@src/components/text";
 
 const SignUp = () => {
   return (
-    <View>
-      <Text>SignUp</Text>
-    </View>
+    <SafeAreaView>
+      <AppText>SignUp</AppText>
+    </SafeAreaView>
   );
 };
 
