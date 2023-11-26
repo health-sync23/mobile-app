@@ -2,7 +2,15 @@ import { TextInput, View } from "react-native";
 import React from "react";
 import AppText from "./text";
 
-const CustomInput = ({ label }: { label: string }) => {
+const CustomInput = ({
+  label,
+  value,
+  onChangeText,
+}: {
+  label: string;
+  value: string;
+  onChangeText: (value: string) => void;
+}) => {
   return (
     <View style={{ gap: 6 }}>
       <AppText>{label}</AppText>
@@ -14,6 +22,8 @@ const CustomInput = ({ label }: { label: string }) => {
           borderRadius: 8,
         }}
         secureTextEntry={label === "Password"}
+        value={value}
+        onChangeText={onChangeText}
       />
     </View>
   );

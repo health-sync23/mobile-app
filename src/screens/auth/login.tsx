@@ -6,6 +6,7 @@ import {
   ScrollView,
   TouchableOpacity,
   StyleSheet,
+  ActivityIndicator,
 } from "react-native";
 import React from "react";
 import AppText from "@src/components/text";
@@ -18,15 +19,30 @@ import AppleLogo from "@src/assets/images/apple";
 import GoogleLogo from "@src/assets/images/google";
 import { StatusBar } from "expo-status-bar";
 import AuthHeader from "./components/header";
+import useLogin from "./hooks/useLogin";
 
 const Login = ({ navigation }: AuthNavigationProps<"Login">) => {
+  const { inputs, isLoading, handleLogin, handleChangeInput } = useLogin();
+
   return (
     <SafeAreaView
       style={{
+        flex: 1,
         paddingTop: StatusBarConstants.currentHeight,
       }}
     >
       <StatusBar style="dark" />
+      {isLoading && (
+        <ActivityIndicator
+          animating={isLoading}
+          color={COLORS.blue}
+          size="large"
+          style={[
+            StyleSheet.absoluteFill,
+            { backgroundColor: "rgba(0, 0, 0, 0.15)", zIndex: 100 },
+          ]}
+        />
+      )}
       <AuthHeader
         canGoBack={navigation.canGoBack()}
         goBack={navigation.goBack}
@@ -41,8 +57,16 @@ const Login = ({ navigation }: AuthNavigationProps<"Login">) => {
           </AppText>
         </View>
         <View style={{ gap: 20 }}>
-          <CustomInput label="Email address" />
-          <CustomInput label="Password" />
+          <CustomInput
+            label="Email address"
+            value={inputs.email}
+            onChangeText={(value) => handleChangeInput("email", value)}
+          />
+          <CustomInput
+            label="Password"
+            value={inputs.password}
+            onChangeText={(value) => handleChangeInput("password", value)}
+          />
           <View style={{ marginBottom: 10 }}>
             <BouncyCheckbox
               size={25}
@@ -60,7 +84,7 @@ const Login = ({ navigation }: AuthNavigationProps<"Login">) => {
               onPress={(isChecked: boolean) => {}}
             />
           </View>
-          <TextButton text="Sign In" style="solid-blue" />
+          <TextButton text="Sign In" style="solid-blue" onPress={handleLogin} />
           <View style={{ alignItems: "center" }}>
             <AppText>Or</AppText>
           </View>

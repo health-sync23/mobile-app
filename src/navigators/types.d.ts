@@ -8,6 +8,8 @@ export type AuthStackParamList = {
 
 export type BottomTabParamList = {
   Dashboard: undefined;
+  Professionals: undefined;
+  Settings: undefined;
 };
 
 export type RootStackParamList = {

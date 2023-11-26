@@ -1,18 +1,20 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, StatusBar, SafeAreaView } from "react-native";
 import React from "react";
 import AppText from "@src/components/text";
-import TextButton from "@src/components/button";
+import useDashboard from "./hooks/useDashboard";
 
 const Dashboard = () => {
+  const { userInfo } = useDashboard();
+
   return (
-    <View>
-      <AppText>
-        Congratulations, you’re all set to adhere to your regimen or connect
-        with patients! Enjoy Health_Sync
+    <SafeAreaView
+      style={{ paddingTop: StatusBar.currentHeight, paddingHorizontal: 24 }}
+    >
+      <AppText family="bold" size={25}>
+        Welcome back {userInfo?.fullname}
       </AppText>
-      <TextButton text="Continue as patient" style="solid-dark" />
-      <TextButton text="Doctor" />
-    </View>
+      <AppText>Don’t forget to take that dose today!</AppText>
+    </SafeAreaView>
   );
 };
 

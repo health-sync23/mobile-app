@@ -64,7 +64,6 @@ const styles = StyleSheet.create({
     paddingTop: StatusBarConstants.currentHeight,
     paddingBottom: 40,
     paddingHorizontal: 24,
-    backgroundColor: "red",
   },
   content: { flex: 1, justifyContent: "space-between", marginTop: 20 },
   overlay: {

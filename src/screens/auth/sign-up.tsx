@@ -6,6 +6,7 @@ import {
   ScrollView,
   TouchableOpacity,
   StyleSheet,
+  ActivityIndicator,
 } from "react-native";
 import React from "react";
 import AppText from "@src/components/text";
@@ -18,8 +19,12 @@ import AppleLogo from "@src/assets/images/apple";
 import GoogleLogo from "@src/assets/images/google";
 import { StatusBar } from "expo-status-bar";
 import AuthHeader from "./components/header";
+import useSignup from "./hooks/useSignup";
 
 const SignUp = ({ navigation }: AuthNavigationProps<"Signup">) => {
+  const { isLoading, inputs, handleCreateAccount, handleChangeInput } =
+    useSignup();
+
   return (
     <SafeAreaView
       style={{
@@ -27,6 +32,17 @@ const SignUp = ({ navigation }: AuthNavigationProps<"Signup">) => {
       }}
     >
       <StatusBar style="dark" />
+      {isLoading && (
+        <ActivityIndicator
+          animating={isLoading}
+          color={COLORS.blue}
+          size="large"
+          style={[
+            StyleSheet.absoluteFill,
+            { backgroundColor: "rgba(0, 0, 0, 0.15)", zIndex: 100 },
+          ]}
+        />
+      )}
       <AuthHeader
         canGoBack={navigation.canGoBack()}
         goBack={navigation.goBack}
@@ -41,9 +57,21 @@ const SignUp = ({ navigation }: AuthNavigationProps<"Signup">) => {
           </AppText>
         </View>
         <View style={{ gap: 14 }}>
-          <CustomInput label="Full name" />
-          <CustomInput label="Email address" />
-          <CustomInput label="Password" />
+          <CustomInput
+            label="Full name"
+            value={inputs.fullname}
+            onChangeText={(value) => handleChangeInput("fullname", value)}
+          />
+          <CustomInput
+            label="Email address"
+            value={inputs.email}
+            onChangeText={(value) => handleChangeInput("email", value)}
+          />
+          <CustomInput
+            label="Password"
+            value={inputs.password}
+            onChangeText={(value) => handleChangeInput("password", value)}
+          />
           <View style={{ marginBottom: 10 }}>
             <BouncyCheckbox
               size={25}
@@ -61,7 +89,11 @@ const SignUp = ({ navigation }: AuthNavigationProps<"Signup">) => {
               onPress={(isChecked: boolean) => {}}
             />
           </View>
-          <TextButton text="Create account" style="solid-blue" />
+          <TextButton
+            text="Create account"
+            style="solid-blue"
+            onPress={handleCreateAccount}
+          />
           <View style={{ alignItems: "center" }}>
             <AppText>Or</AppText>
           </View>
