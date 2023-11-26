@@ -3,8 +3,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import { BASE_URL } from "@src/config";
 
-import "core-js/stable/atob";
-
 export default () => {
   const [userInfo, setUserInfo] = useState<any>(null);
 

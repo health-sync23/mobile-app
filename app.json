@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "HealthSync",
-    "slug": "health-sync",
+    "name": "Health Sync",
+    "slug": "health-sync-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -18,7 +18,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#94F3E4"
       },
       "package": "com.johnphealipto.healthsyncapp"
     },

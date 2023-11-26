@@ -51,15 +51,19 @@ const _styles = (style: ButtonStyles) =>
       justifyContent: "center",
       alignItems: "center",
       borderWidth: 1,
-      shadowColor: "black",
-      shadowOffset: {
-        width: 0,
-        height: 4,
-      },
-      shadowOpacity: 0.3,
-      shadowRadius: 4.65,
-      elevation: 8,
-      ...{ ...BUTTON_CONTAINER_STYLE_MAPPER[style] },
+      ...(style !== "outline"
+        ? {
+            shadowColor: "black",
+            shadowOffset: {
+              width: 0,
+              height: 4,
+            },
+            shadowOpacity: 0.3,
+            shadowRadius: 4.65,
+            elevation: 8,
+          }
+        : {}),
+      ...BUTTON_CONTAINER_STYLE_MAPPER[style],
     },
     text: {
       color: TEXT_COLOR_MAPPER[style],
