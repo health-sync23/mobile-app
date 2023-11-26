@@ -1,14 +1,22 @@
-import { StyleSheet, Text } from "react-native";
+import { Text } from "react-native";
 import React, { PropsWithChildren } from "react";
+import { FONT_FAMILY } from "@src/constants";
 
 interface IAppText extends PropsWithChildren {
-  family?: string;
+  family?: keyof typeof FONT_FAMILY;
+  size?: number;
 }
 
-const AppText: React.FC<IAppText> = ({ children }) => {
-  return <Text>{children}</Text>;
+const AppText: React.FC<IAppText> = ({
+  children,
+  size: fontSize,
+  family = "medium",
+}) => {
+  return (
+    <Text style={{ fontFamily: FONT_FAMILY[family], fontSize }}>
+      {children}
+    </Text>
+  );
 };
 
 export default AppText;
-
-const styles = StyleSheet.create({});

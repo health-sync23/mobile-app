@@ -51,21 +51,25 @@ const Pagination = ({
       style={{
         marginBottom: 40,
         paddingHorizontal: 24,
-        paddingTop: 10,
+        paddingTop: 5,
         flexDirection: "row",
       }}
     >
       {currentIndex === SLIDES.length - 1 ? (
-        <View style={{ gap: 20, flex: 1 }}>
+        <View style={{ gap: 10, flex: 1 }}>
           <Indicator />
           <TextButton
             text="Sign Up"
             style="solid-blue"
-            onPress={() => navigation.navigate("Signup")}
+            onPress={() =>
+              navigation.navigate("AuthStack", { screen: "Signup" })
+            }
           />
           <TextButton
             text="Log In"
-            onPress={() => navigation.navigate("Login")}
+            onPress={() =>
+              navigation.navigate("AuthStack", { screen: "Login" })
+            }
           />
         </View>
       ) : (

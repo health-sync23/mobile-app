@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "health-sync-app",
-    "slug": "health-sync-app",
+    "name": "HealthSync",
+    "slug": "health-sync",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -19,14 +19,19 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.johnphealipto.healthsyncapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-
     "experiments": {
       "tsconfigPaths": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "8bbb840e-a3ef-42fb-a4cd-c57f3aa8d733"
+      }
     }
   }
 }

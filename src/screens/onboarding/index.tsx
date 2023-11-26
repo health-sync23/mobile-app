@@ -50,7 +50,7 @@ const Onboarding = ({ navigation }: RootNavigationProps<"Onboarding">) => {
       }}
     >
       <StatusBar style="dark" />
-      <View style={{ alignItems: "center", marginBottom: 20 }}>
+      <View style={{ alignItems: "center", marginVertical: 20 }}>
         <HealthSync />
       </View>
       <FlatList

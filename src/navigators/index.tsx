@@ -4,8 +4,8 @@ import { RootStackParamList } from "./types";
 
 import Onboarding from "@src/screens/onboarding";
 import SplashScreen from "@src/screens/splash";
-import Login from "@src/screens/auth/login";
-import SignUp from "@src/screens/auth/sign-up";
+import AuthNavigator from "./auth-navigator";
+import BottomTabNavigator from "./bottom-navigator";
 
 const THEME = {
   ...DefaultTheme,
@@ -27,8 +27,8 @@ const RootStack = () => {
       >
         <Stack.Screen name="Splash" component={SplashScreen} />
         <Stack.Screen name="Onboarding" component={Onboarding} />
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Signup" component={SignUp} />
+        <Stack.Screen name="AuthStack" component={AuthNavigator} />
+        <Stack.Screen name="BottomTab" component={BottomTabNavigator} />
       </Stack.Navigator>
     </NavigationContainer>
   );

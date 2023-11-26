@@ -44,7 +44,9 @@ const SplashScreen = ({ navigation }: RootNavigationProps<"Splash">) => {
             />
             <TextButton
               text="Log In"
-              onPress={() => navigation.navigate("Login")}
+              onPress={() =>
+                navigation.navigate("AuthStack", { screen: "Login" })
+              }
             />
           </View>
         </View>
