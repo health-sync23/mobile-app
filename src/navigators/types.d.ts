@@ -12,11 +12,17 @@ export type BottomTabParamList = {
   Settings: undefined;
 };
 
+export type RemindersParamList = {
+  MyReminders: { refetch?: boolean };
+  NewReminders: undefined;
+};
+
 export type RootStackParamList = {
   Splash: undefined;
   Onboarding: undefined;
 
   // Nested Stacks
+  Reminders: NavigatorScreenParams<RemindersParamList>;
   AuthStack: NavigatorScreenParams<AuthStackParamList>;
   BottomTab: NavigatorScreenParams<BottomTabParamList>;
 };
@@ -29,3 +35,6 @@ export type AuthNavigationProps<T extends keyof AuthStackParamList> =
 
 export type BottomTabNavigationProps<T extends keyof BottomTabParamList> =
   NativeStackScreenProps<BottomTabParamList, T>;
+
+export type RemindersNavigationProps<T extends keyof RemindersParamList> =
+  NativeStackScreenProps<RemindersParamList, T>;

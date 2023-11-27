@@ -12,11 +12,14 @@ import React from "react";
 import AppText from "@src/components/text";
 import useDashboard from "./hooks/useDashboard";
 import TextButton from "@src/components/button";
+import { NavigationProp, useNavigation } from "@react-navigation/native";
+import { RootStackParamList } from "@src/navigators/types";
 
 const MEDICATIONS = ["Ibubrofen", "Sirdalud", "Paracetamol"];
 
 const Dashboard = () => {
   const { userInfo } = useDashboard();
+  const { navigate } = useNavigation<NavigationProp<RootStackParamList>>();
 
   return (
     <SafeAreaView
@@ -124,7 +127,16 @@ const Dashboard = () => {
           <AppText family="bold" size={18} color="dark">
             Quick actions
           </AppText>
-          <TextButton text="Medication reminder" style="outline" />
+          <TextButton
+            text="Medication reminder"
+            style="outline"
+            onPress={() =>
+              navigate("Reminders", {
+                screen: "MyReminders",
+                params: { refetch: false },
+              })
+            }
+          />
           <TextButton text="My appointment (s)" style="outline" />
           <TextButton text="Check analytics" style="outline" />
         </View>

@@ -6,14 +6,16 @@ const CustomInput = ({
   label,
   value,
   onChangeText,
+  placeholder,
 }: {
-  label: string;
+  label?: string;
   value: string;
+  placeholder?: string;
   onChangeText: (value: string) => void;
 }) => {
   return (
     <View style={{ gap: 6 }}>
-      <AppText>{label}</AppText>
+      {label ? <AppText>{label}</AppText> : null}
       <TextInput
         style={{
           backgroundColor: "#F4F9F4",
@@ -21,6 +23,7 @@ const CustomInput = ({
           height: 50,
           borderRadius: 8,
         }}
+        placeholder={placeholder}
         secureTextEntry={label === "Password"}
         value={value}
         onChangeText={onChangeText}

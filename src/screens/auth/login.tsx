@@ -49,7 +49,7 @@ const Login = ({ navigation }: AuthNavigationProps<"Login">) => {
       />
       <ScrollView style={{ paddingHorizontal: 24 }}>
         <View style={{ marginBottom: 20 }}>
-          <AppText family="bold" size={25}>
+          <AppText family="bold" size={25} color="dark">
             Welcome back
           </AppText>
           <AppText>

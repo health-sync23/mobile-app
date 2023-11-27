@@ -6,6 +6,7 @@ import Onboarding from "@src/screens/onboarding";
 import SplashScreen from "@src/screens/splash";
 import AuthNavigator from "./auth-navigator";
 import BottomTabNavigator from "./bottom-navigator";
+import RemindersNavigator from "@src/screens/reminders/navigators";
 
 const THEME = {
   ...DefaultTheme,
@@ -29,6 +30,7 @@ const RootStack = () => {
         <Stack.Screen name="Onboarding" component={Onboarding} />
         <Stack.Screen name="AuthStack" component={AuthNavigator} />
         <Stack.Screen name="BottomTab" component={BottomTabNavigator} />
+        <Stack.Screen name="Reminders" component={RemindersNavigator} />
       </Stack.Navigator>
     </NavigationContainer>
   );

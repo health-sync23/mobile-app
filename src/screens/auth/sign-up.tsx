@@ -49,7 +49,7 @@ const SignUp = ({ navigation }: AuthNavigationProps<"Signup">) => {
       />
       <ScrollView style={{ paddingHorizontal: 24 }}>
         <View style={{ marginBottom: 20 }}>
-          <AppText family="bold" size={25}>
+          <AppText family="bold" size={25} color="dark">
             Create account
           </AppText>
           <AppText>
