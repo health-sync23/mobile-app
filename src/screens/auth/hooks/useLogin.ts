@@ -7,7 +7,7 @@ import { RootStackParamList } from "@src/navigators/types";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default () => {
-  const rootNavigation = useNavigation<NavigationProp<RootStackParamList>>();
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
   const [isLoading, setIsLoading] = useState(false);
   const [inputs, setInputs] = useState({
@@ -25,7 +25,7 @@ export default () => {
       .post(`${BASE_URL}/signin`, inputs)
       .then(async ({ data }) => {
         await AsyncStorage.setItem("user_info", JSON.stringify(data));
-        rootNavigation.navigate("BottomTab", { screen: "Dashboard" });
+        navigation.navigate("BottomTab", { screen: "Dashboard" });
       })
       .catch((error) => {
         Alert.alert("Login Error!", JSON.stringify(error?.message));
