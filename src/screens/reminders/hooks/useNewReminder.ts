@@ -29,7 +29,7 @@ export default () => {
     if (value !== null) {
       const user = JSON.parse(value);
       await axios
-        .post(`${BASE_URL}/create-reminder`, inputs, {
+        .post(`${BASE_URL}/reminder`, inputs, {
           headers: { Authorization: `Bearer ${user.token}` },
         })
         .then(() => {
